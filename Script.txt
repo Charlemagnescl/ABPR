@@ -1,0 +1,15 @@
+javac -encoding UTF-8 *.java
+
+[Training]
+java ABPR -d 20 -alpha_u 0.001 -alpha_v 0.001 -beta_u 0.001 -beta_v 0.001 -gamma 0.01 -fnTrainData ./ML1M_copy1.train -fnTestData ./ML1M_copy1.valid -n 6040 -m 3952 -groupsizeP 3 -groupsizeN 3 -num_iterations 1000 -num_iterations_perTest 10 -loss ABPRMGO -topK 5 > ABPRMGO_ML1M_20_0.001_3_3.txt
+
+java ABPR -d 20 -alpha_u 0.01 -alpha_v 0.01 -beta_u 0.01 -beta_v 0.01 -gamma 0.01 -fnTrainData ./ML1M_copy1.train -fnTestData ./ML1M_copy1.valid -n 6040 -m 3952 -groupsizeP 3 -groupsizeN 3 -num_iterations 1000 -num_iterations_perTest 10 -loss ABPRMGO -topK 5 > ABPRMGO_ML1M_20_0.01_3_3.txt
+
+java ABPR -d 20 -alpha_u 0.1 -alpha_v 0.1 -beta_u 0.1 -beta_v 0.1 -gamma 0.01 -fnTrainData ./ML1M_copy1.train -fnTestData ./ML1M_copy1.valid -n 6040 -m 3952 -groupsizeP 3 -groupsizeN 3 -num_iterations 1000 -num_iterations_perTest 10 -loss ABPRMGO -topK 5 > ABPRMGO_ML1M_20_0.1_3_3.txt
+
+The best parameter: 0.001, 810
+
+[Test]
+java ABPR -d 20 -alpha_u 0.01 -alpha_v 0.01 -beta_u 0.01 -beta_v 0.01 -gamma 0.01 -fnTrainData ./ML1M_copy1.train -fnTestData ./ML1M_copy1.test -n 6040 -m 3952 -groupsizeP 3 -groupsizeN 3 -num_iterations 810 -num_iterations_perTest -1 -loss ABPRMGO -topK 5 > ABPRMGO_ML1M_20_0.01_3_3_T810.txt
+
+
